@@ -1,0 +1,10 @@
+<%= form_for(@post, url: posts_path(group_id: @group.id)) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, id: :post_title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
