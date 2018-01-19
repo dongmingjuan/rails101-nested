@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -13,6 +15,9 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.title %></td>
+        <td><%= link_to("查看", comment_path(comment, post_id: params[:post_id]))%></td>
+        <td><%= link_to("修改", edit_comment_path(comment, post_id: params[:post_id]))%></td>
+        <td><%= link_to("删除", comment_path(comment, post_id: params[:post_id]), method: :delete)%></td>
       </tr>
     <% end %>
   </tbody>

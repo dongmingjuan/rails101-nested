@@ -1,0 +1,10 @@
+<%= form_for(@comment, url: comment_path(post_id: @post.id), method: :put) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, id: :post_title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
