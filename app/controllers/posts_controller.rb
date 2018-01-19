@@ -14,6 +14,11 @@ class PostsController < ApplicationController
     @post = @group.posts.find(params[:id])
   end
 
+  def show
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.find(params[:id])
+  end
+
   def update
     @group = Group.find(params[:group_id])
     @post = @group.posts.find(params[:id])
@@ -32,6 +37,13 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.find(params[:id])
+    @post.destroy
+    redirect_to posts_path(group_id: params[:group_id])
   end
 
   private
